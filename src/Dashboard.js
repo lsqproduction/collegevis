@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
       <div>
         <Profile />
 
-        {/* <VictoryPie
+        <VictoryPie
           // theme={VictoryTheme.material}
           colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
           data={[
@@ -27,7 +27,7 @@ export default class Dashboard extends Component {
             { x: "Bug", y: 10 },
           ]}
           innerRadius={30}
-        /> */}
+        />
 
       </div>
     );
