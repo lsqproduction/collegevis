@@ -5,9 +5,7 @@
 import React from "react";
 import {
   VictoryPie,
-  VictoryTooltip,
-  VictoryTheme,
-  VictoryLabel
+
 } from "victory";
 
 
@@ -15,28 +13,18 @@ export default class Program extends React.Component {
   constructor(props) {
     super();
     this.state = {
-
       colorScale: ["#D85F49", "#F66D3B", "#D92E1D", "#D73C4C", "#FFAF59", "#E28300", "#F6A57F"],
 
     };
   }
 
-
-
   render() {
     let programs = {...this.props.props}
+
     Object.keys(programs).forEach((key) => {
       if (!programs[key]) delete programs[key];
     });
-
     console.log(programs)
-
-
-    // // console.log(this.props.props.school.filter(time=>time === year ));
-    // console.log(school);
-    // console.log(year)
-
-
 
 
     return (

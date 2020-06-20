@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Axios from "axios";
 import Profile from "./Profile"
 import Program from "./Program"
-import { VictoryPie, VictoryTheme, VictoryChart, VictoryBar} from "victory";
-
 
 
 export default class Dashboard extends Component {
@@ -13,7 +11,6 @@ export default class Dashboard extends Component {
       year: "2018",
       school: null,
       isLoaded: false,
-
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,10 +18,9 @@ export default class Dashboard extends Component {
   handleChange(event) {
     this.setState({
       year: event.target.value,
-      program:this.state.school[`${event.target.value}`]
+      program: this.state.school[`${event.target.value}`].academics
+        .program_percentage
     });
-
-    console.log("change", this.state.school[`${event.target.value}`]);
   }
 
   async componentDidMount() {
@@ -42,7 +38,6 @@ export default class Dashboard extends Component {
   }
 
   render() {
-
 
     return (
       <div>
