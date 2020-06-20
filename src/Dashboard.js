@@ -13,12 +13,18 @@ export default class Dashboard extends Component {
       year: "2018",
       school: null,
       isLoaded: false,
+
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
-    this.setState({ year: event.target.value });
+    this.setState({
+      year: event.target.value,
+      program:this.state.school[`${event.target.value}`]
+    });
+
+    console.log("change", this.state.school[`${event.target.value}`]);
   }
 
   async componentDidMount() {
@@ -27,12 +33,16 @@ export default class Dashboard extends Component {
     );
 
     this.setState({
+      year: "2018",
       school: data.results[0],
       isLoaded: true,
+      program: data.results[0]["2018"].academics.program_percentage
     });
+
   }
 
   render() {
+
 
     return (
       <div>
@@ -71,7 +81,7 @@ export default class Dashboard extends Component {
           </select>
         </div>
 
-        <Program props={this.state} />
+        <Program props={this.state.program} />
       </div>
     );
   }
