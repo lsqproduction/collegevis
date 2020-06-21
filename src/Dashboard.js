@@ -3,6 +3,7 @@ import Axios from "axios";
 import Profile from "./Profile"
 import Program from "./Program"
 import Ethnicity from "./Ethnicity";
+import Cost from "./Cost";
 
 
 export default class Dashboard extends Component {
@@ -20,7 +21,9 @@ export default class Dashboard extends Component {
     this.setState({
       year: event.target.value,
       program: this.state.school[`${event.target.value}`].academics
-        .program_percentage
+        .program_percentage,
+      ethnicity: this.state.school[`${event.target.value}`].student.demographics
+        .race_ethnicity
     });
   }
 
@@ -28,12 +31,14 @@ export default class Dashboard extends Component {
     let { data } = await Axios.get(
       "https://api.data.gov/ed/collegescorecard/v1/schools/?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=bkgXKZi02196XqYqxIqggDlyIfzOd76qGcW9clgn"
     );
+    console.log(data.results[0]);
 
     this.setState({
       year: "2018",
       school: data.results[0],
       isLoaded: true,
-      program: data.results[0]["2018"].academics.program_percentage
+      program: data.results[0]["2018"].academics.program_percentage,
+      ethnicity: data.results[0]["2018"].student.demographics.race_ethnicity,
     });
 
   }
@@ -76,9 +81,10 @@ export default class Dashboard extends Component {
             <option value="1996">1996</option>
           </select>
         </div>
-        <div></div>
-        {/* <Ethnicity /> */}
+
+        <Ethnicity props={this.state.ethnicity}/>
         <Program props={this.state.program} />
+        <Cost />
       </div>
     );
   }
