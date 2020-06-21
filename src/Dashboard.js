@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import Profile from "./Profile"
 import Program from "./Program"
+import Ethnicity from "./Ethnicity";
 
 
 export default class Dashboard extends Component {
@@ -75,7 +76,8 @@ export default class Dashboard extends Component {
             <option value="1996">1996</option>
           </select>
         </div>
-
+        <div></div>
+        {/* <Ethnicity /> */}
         <Program props={this.state.program} />
       </div>
     );
