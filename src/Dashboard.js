@@ -31,7 +31,24 @@ export default class Dashboard extends Component {
     let { data } = await Axios.get(
       "https://api.data.gov/ed/collegescorecard/v1/schools/?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=bkgXKZi02196XqYqxIqggDlyIfzOd76qGcW9clgn"
     );
-    console.log(data.results[0]);
+
+     let costArr = { ...data.results[0] };
+
+     let cost = []
+
+     for (let key in costArr) {
+
+       if (costArr[key].cost){
+         cost.push({
+           year: key,
+           inState: costArr[key].cost.tuition.in_state,
+           outState: costArr[key].cost.tuition.out_of_state,
+         });
+       }
+
+     }
+    cost.pop()
+
 
     this.setState({
       year: "2018",
@@ -39,11 +56,13 @@ export default class Dashboard extends Component {
       isLoaded: true,
       program: data.results[0]["2018"].academics.program_percentage,
       ethnicity: data.results[0]["2018"].student.demographics.race_ethnicity,
+      cost,
     });
 
   }
 
   render() {
+
 
     return (
       <div>
@@ -84,7 +103,7 @@ export default class Dashboard extends Component {
 
         <Ethnicity props={this.state.ethnicity}/>
         <Program props={this.state.program} />
-        <Cost />
+        <Cost props={this.state.cost}/>
       </div>
     );
   }
