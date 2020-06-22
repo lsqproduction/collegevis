@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from "axios";
+
 
 export default class Profile extends Component {
 
@@ -18,7 +18,6 @@ export default class Profile extends Component {
 
                      return (
                        <div>
-                         <h1>Profile</h1>
                          <p>{school.school.name}</p>
                          {school.school.alias ? (
                            <p>{school.school.alias}</p>
