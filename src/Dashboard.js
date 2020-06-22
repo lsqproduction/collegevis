@@ -67,6 +67,7 @@ export default class Dashboard extends Component {
     return (
       <div>
         <Profile props={this.state} />
+
         <div>
           <label>Choose a year:</label>
           <select
@@ -101,9 +102,9 @@ export default class Dashboard extends Component {
           </select>
         </div>
 
-        <Ethnicity props={this.state.ethnicity}/>
+        <Ethnicity props={this.state.ethnicity} />
         <Program props={this.state.program} />
-        <Cost props={this.state.cost}/>
+        <Cost props={this.state.cost} />
       </div>
     );
   }
