@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"
 import {
   VictoryChart,
   VictoryLine,
   VictoryLegend,
   VictoryTheme,
   VictoryLabel
-} from "victory";
+} from "victory"
 export  default class Cost extends React.Component {
 
 
@@ -18,10 +18,6 @@ export  default class Cost extends React.Component {
     let outState = []
     Object.keys(cost).forEach((key)=>{
 
-      // if(!cost[key].inState || !cost[key].outState){
-      //   delete cost[key];
-      // } else {
-
         inState.push({
           a: new Date(cost[key].year, 1, 1),
           b: cost[key].inState
@@ -31,7 +27,7 @@ export  default class Cost extends React.Component {
         outState.push({
           a: new Date(cost[key].year, 1, 1),
           b: cost[key].outState,
-        });
+        })
       // }
     })
 
@@ -80,7 +76,7 @@ export  default class Cost extends React.Component {
           />
         </VictoryChart>
       </div>
-    );
+    )
   }
 }
 

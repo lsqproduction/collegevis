@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 
 
@@ -12,7 +12,7 @@ const links = [
   { name: "Program Percentages", url: "#program", target: false },
   { name: "Ethnicities", url: "#race", target: false },
   { name: "Tuition", url: "#tuition", target: false },
-];
+]
 
 class Navbar extends React.Component {
 
@@ -41,10 +41,10 @@ class Navbar extends React.Component {
           <button
             className="text-black border-white hover:border-transparent hover:text-yellow-500 hover:bg-white mt-4 lg:mt-0"
             onClick={() => {
-              window.print();
+              window.print()
             }}
           >
-            Print
+            Print & Save PDF
           </button>
           <a
             className="text-black border-white hover:border-transparent hover:text-yellow-500 hover:bg-white mt-4 lg:mt-0"
@@ -55,7 +55,7 @@ class Navbar extends React.Component {
           </a>
         </div>
       </div>
-    );
+    )
   }
 }
 

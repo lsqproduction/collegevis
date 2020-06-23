@@ -1,10 +1,9 @@
-import React from "react";
+import React from "react"
 import {
   VictoryPie,
   VictoryTooltip,
   VictoryLegend
-
-} from "victory";
+} from "victory"
 
 
 
@@ -41,13 +40,13 @@ export default class Ethnicity extends React.Component {
       "#FFAF59",
       "#E28300",
       "#F6A57F",
-    ];
+    ]
     let ethnicity = {...this.props.props}
 
     //filter out null values
     Object.keys(ethnicity).forEach((key) => {
-      if (!ethnicity[key]) delete ethnicity[key];
-    });
+      if (!ethnicity[key]) delete ethnicity[key]
+    })
 
     //Data for the donut chart
     let data = []
@@ -56,12 +55,12 @@ export default class Ethnicity extends React.Component {
         x: key,
         y: ethnicity[key],
         label: key + ": " + ethnicity[key],
-      });
+      })
     }
 
-    let legendData = [];
+    let legendData = []
     for (let key in ethnicity) {
-      legendData.push({ name: key });
+      legendData.push({ name: key })
     }
 
     return (
@@ -90,7 +89,7 @@ export default class Ethnicity extends React.Component {
           labelComponent={<VictoryTooltip constrainToVisibleArea />}
         />
       </div>
-    );
+    )
   }
 }
 

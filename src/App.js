@@ -26,7 +26,7 @@ class App extends React.Component {
       ethnicity: this.state.school[`${event.target.value}`].student.demographics
         .race_ethnicity,
       numStudents: this.state.school[`${event.target.value}`].student.size,
-    });
+    })
   }
 
    async componentDidMount() {
@@ -56,7 +56,7 @@ class App extends React.Component {
       city: data.results[0].school.city,
       state: data.results[0].school.state,
       zip: data.results[0].school.zip,
-    };
+    }
 
     this.setState({
       year: "2018",
@@ -67,7 +67,7 @@ class App extends React.Component {
       cost,
       profile,
       numStudents: data.results[0]["2018"].student.size
-    });
+    })
   }
 
   render() {
@@ -91,7 +91,6 @@ class App extends React.Component {
           <div>
             <Profile props={this.state} />
           </div>
-          {/* <div className="w-full sm:w-1/2 flex items-center flex-col space-y-8 my-auto bg-yellow-500"> */}
           <div>
             <label>Choose a year:</label>
             <select
@@ -124,7 +123,7 @@ class App extends React.Component {
               <option value="1997">1997</option>
               <option value="1996">1996</option>
             </select>
-            {/* </div> */}
+
           </div>
         </section>
 
@@ -149,7 +148,7 @@ class App extends React.Component {
 
         </section>
       </div>
-    );
+    )
   }
 }
 

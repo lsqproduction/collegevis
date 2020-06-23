@@ -1,9 +1,5 @@
-
-
-
-
-import React from "react";
-import { VictoryPie, VictoryTooltip, VictoryLegend} from "victory";
+import React from "react"
+import { VictoryPie, VictoryTooltip, VictoryLegend} from "victory"
 
 
 export default class Program extends React.Component {
@@ -41,12 +37,12 @@ export default class Program extends React.Component {
       "#FFAF59",
       "#E28300",
       "#F6A57F",
-    ];
+    ]
     let programs = {...this.props.props}
     //filter out null values
     Object.keys(programs).forEach((key) => {
-      if (!programs[key]) delete programs[key];
-    });
+      if (!programs[key]) delete programs[key]
+    })
 
 
     //Data for the donut chart
@@ -55,7 +51,7 @@ export default class Program extends React.Component {
       data.push({
         x: key,
         y: programs[key],
-        label: key +": "+ programs[key]});
+        label: key +": "+ programs[key]})
     }
 
     let legendData = []
@@ -90,7 +86,7 @@ export default class Program extends React.Component {
           labelComponent={<VictoryTooltip  constrainToVisibleArea />}
         />
       </div>
-    );
+    )
   }
 }
 

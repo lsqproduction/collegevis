@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 
 export default class Profile extends Component {
@@ -7,18 +7,18 @@ export default class Profile extends Component {
 
                  render() {
 
-                   let { year, school, isLoaded } = this.props.props;
+                   let { year, school, isLoaded } = this.props.props
 
                    if (!isLoaded) {
-                     return <div>Loading...</div>;
+                     return <div>Loading...</div>
                    } else {
 
-                     let url = school.school.school_url;
+                     let url = school.school.school_url
 
 
                      return (
                        <div>
-                         <p>{school.school.name}</p>
+                         <strong>{school.school.name}</strong>
                          {school.school.alias ? (
                            <p>{school.school.alias}</p>
                          ) : (
@@ -41,7 +41,7 @@ export default class Profile extends Component {
                            <p>Total number of Students no available</p>
                          )}
                        </div>
-                     );
+                     )
                    }
                  }
                }
