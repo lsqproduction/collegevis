@@ -62,7 +62,7 @@ export default class Program extends React.Component {
 
     return (
       <div>
-        <svg width={800} height={400}>
+        {/* <svg width={800} height={400}>
           <VictoryLegend
             standalone={false}
             itemsPerRow={10}
@@ -75,18 +75,18 @@ export default class Program extends React.Component {
             style={{ title: { fontSize: 30 } }}
             data={legendData}
           />
-        </svg>
-
+        </svg> */}
+        <strong>Program</strong>
         <VictoryPie
           padding={5}
           colorScale={colors}
           innerRadius={100}
           data={data}
           labelRadius={130}
-          labelComponent={<VictoryTooltip  constrainToVisibleArea />}
+          labelComponent={<VictoryTooltip constrainToVisibleArea />}
         />
       </div>
-    )
+    );
   }
 }
 

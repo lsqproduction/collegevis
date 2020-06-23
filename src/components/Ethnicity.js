@@ -65,7 +65,7 @@ export default class Ethnicity extends React.Component {
 
     return (
       <div>
-        <svg width={800}>
+        {/* <svg width={800}>
           <VictoryLegend
             standalone={false}
             orientation="horizontal"
@@ -79,17 +79,18 @@ export default class Ethnicity extends React.Component {
             style={{ title: { fontSize: 30 } }}
             data={legendData}
           />
-        </svg>
+        </svg> */}
+        <strong>Ethnicities</strong>
         <VictoryPie
           colorScale={colors}
           padding={5}
           innerRadius={100}
-          labels={() => null}
           data={data}
+          labelRadius={130}
           labelComponent={<VictoryTooltip constrainToVisibleArea />}
         />
       </div>
-    )
+    );
   }
 }
 

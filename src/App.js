@@ -127,32 +127,34 @@ class App extends React.Component {
                 <option value="1997">1997</option>
                 <option value="1996">1996</option>
               </select>
-
             </div>
           </section>
 
-          <section id="program" className="flex">
-            <div className="flex w-10/12 p-20 pr-0">
-              <div className="w-1/2 mt-10"></div>
+          <section
+            id="program"
+            className="flex content-center justify-center m-auto"
+          >
+            <div className="mt-10 my-10">
               <Program props={this.state.program} />
             </div>
           </section>
 
-          <section id="race" className="bg-yellow-500 flex">
-            <div className="flex w-10/12 p-20 pr-0">
-              <div className="w-1/2 mt-10"></div>
+          <section
+            id="race"
+            className="bg-yellow-500 flex content-center justify-center"
+          >
+            <div className="mt-10 my-10">
               <Ethnicity props={this.state.ethnicity} />
             </div>
           </section>
 
-          <section id="tuition" className="flex items-center flex">
-
-              <div className="w-1/3 mt-10"></div>
+          <section id="tuition" className="flex content-center justify-center">
+            <div className="mt-10 my-10">
               <Cost props={this.state.cost} />
-
+            </div>
           </section>
         </div>
-      )
+      );
     }
   }
 }
