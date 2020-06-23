@@ -27,8 +27,10 @@ export default class Profile extends Component {
                          <a href={`https://${url}`}>
                            {school.school.school_url}
                          </a>
-                         <p>{school.school.city}</p>
-                         <p>{school.school.state}</p>
+                         <p>
+                           {school.school.city}, {school.school.state}
+                         </p>
+
                          <p>{school.school.zip}</p>
                          {school[`${year}`].student.size ? (
                            <p>

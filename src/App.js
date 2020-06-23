@@ -63,14 +63,18 @@ class App extends React.Component {
   }
 
   render() {
+    const {school, program, ethnicity,cost} = this.state
+    let jsonData = {school,program, ethnicity,cost}
+
+
 
     return (
       <div className="App max-w-full">
-        <Nav />
+        <Nav id="nav" props={jsonData} />
 
         {/* <section className="bg-yellow-500 px-10 py-10 lg:p-32 flex  container mx-auto"> */}
         <section
-          id="ethnicities"
+          id="profile"
           className=" w-full bg-yellow-500 p-10 flex flex-col m-auto text-center lg:p-32 space-y-4"
         >
           <div>
@@ -82,7 +86,7 @@ class App extends React.Component {
             <select
               name="year"
               id="year"
-              value={this.state.value}
+              value={this.state.year}
               onChange={this.handleChange}
             >
               <option value="2018">2018</option>
