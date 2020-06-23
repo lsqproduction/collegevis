@@ -20,7 +20,7 @@ export default class Profile extends Component {
                        <div>
                          <strong>{school.school.name}</strong>
                          {school.school.alias ? (
-                           <p>{school.school.alias}</p>
+                           <strong>{school.school.alias}</strong>
                          ) : (
                            <p></p>
                          )}
