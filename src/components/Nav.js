@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+
 
 
 const links = [
@@ -18,17 +18,11 @@ class Navbar extends React.Component {
 
 
   render() {
-    let jsonData = {...this.props.props}
+    let jsonData = this.props.props
 
     var data =
-      "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(jsonData));
+      "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(jsonData))
 
-    console.log(data)
-
-    var a = document.createElement("a");
-    a.href = "data:" + data;
-    a.download = "data.json";
-    a.innerHTML = "download JSON";
 
 
     return (
@@ -45,7 +39,7 @@ class Navbar extends React.Component {
           ))}
           <button
             onClick={() => {
-              window.print();
+              window.print()
             }}
           >
             Print
@@ -61,4 +55,4 @@ class Navbar extends React.Component {
 
 
 
-export default Navbar;
+export default Navbar

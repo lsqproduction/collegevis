@@ -1,10 +1,10 @@
 import React from 'react'
-import Axios from "axios";
+import Axios from "axios"
 import './App.css'
-import Profile from "./components/Profile";
-import Program from "./components/Program";
-import Ethnicity from "./components/Ethnicity";
-import Cost from "./components/Cost";
+import Profile from "./components/Profile"
+import Program from "./components/Program"
+import Ethnicity from "./components/Ethnicity"
+import Cost from "./components/Cost"
 import Nav from './components/Nav'
 
 class App extends React.Component {
@@ -15,7 +15,6 @@ class App extends React.Component {
       school: null,
       isLoaded: false,
     }
-
      this.handleChange = this.handleChange.bind(this)
   }
 
@@ -25,19 +24,19 @@ class App extends React.Component {
       program: this.state.school[`${event.target.value}`].academics
         .program_percentage,
       ethnicity: this.state.school[`${event.target.value}`].student.demographics
-        .race_ethnicity
-    })
+        .race_ethnicity,
+      numStudents: this.state.school[`${event.target.value}`].student.size,
+    });
   }
 
    async componentDidMount() {
     let { data } = await Axios.get(
       "https://api.data.gov/ed/collegescorecard/v1/schools/?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=bkgXKZi02196XqYqxIqggDlyIfzOd76qGcW9clgn"
-    );
+    )
 
-     let costArr = { ...data.results[0] };
 
+     let costArr = { ...data.results[0] }
      let cost = []
-
      for (let key in costArr) {
 
        if (costArr[key].cost){
@@ -45,11 +44,19 @@ class App extends React.Component {
            year: key,
            inState: costArr[key].cost.tuition.in_state,
            outState: costArr[key].cost.tuition.out_of_state,
-         });
+         })
        }
 
      }
     cost.pop()
+
+    let profile = {
+      name: data.results[0].school.name,
+      url: data.results[0].school.school_url,
+      city: data.results[0].school.city,
+      state: data.results[0].school.state,
+      zip: data.results[0].school.zip,
+    };
 
     this.setState({
       year: "2018",
@@ -58,15 +65,16 @@ class App extends React.Component {
       program: data.results[0]["2018"].academics.program_percentage,
       ethnicity: data.results[0]["2018"].student.demographics.race_ethnicity,
       cost,
+      profile,
+      numStudents: data.results[0]["2018"].student.size
     });
-
   }
 
   render() {
-    const {school, program, ethnicity,cost} = this.state
-    let jsonData = {school,program, ethnicity,cost}
 
+    const { profile,numStudents, program, ethnicity,cost} = this.state
 
+    let jsonData = {profile, numStudents, program, ethnicity,cost}
 
     return (
       <div className="App max-w-full">
@@ -138,9 +146,9 @@ class App extends React.Component {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
 
-export default App;
+export default App

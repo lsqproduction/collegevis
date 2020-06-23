@@ -2,7 +2,6 @@ import React from "react";
 import {
   VictoryChart,
   VictoryLine,
-  VictoryTooltip,
   VictoryLegend,
   VictoryTheme,
   VictoryLabel
