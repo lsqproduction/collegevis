@@ -30,6 +30,7 @@ class Navbar extends React.Component {
         <div className="hidden sm:block m-auto list-none flex space-x-10 font-family-montserrat">
           {links.map((link) => (
             <a
+              className="text-black border-white hover:border-transparent hover:text-yellow-500 hover:bg-white mt-4 lg:mt-0"
               key={link.name}
               target={link.target ? "_blank" : null}
               href={link.url}
@@ -38,13 +39,18 @@ class Navbar extends React.Component {
             </a>
           ))}
           <button
+            className="text-black border-white hover:border-transparent hover:text-yellow-500 hover:bg-white mt-4 lg:mt-0"
             onClick={() => {
-              window.print()
+              window.print();
             }}
           >
             Print
           </button>
-          <a href={`data:${data}`} download="data.json">
+          <a
+            className="text-black border-white hover:border-transparent hover:text-yellow-500 hover:bg-white mt-4 lg:mt-0"
+            href={`data:${data}`}
+            download="data.json"
+          >
             Download JSON
           </a>
         </div>

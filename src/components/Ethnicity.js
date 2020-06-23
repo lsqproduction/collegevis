@@ -87,8 +87,6 @@ export default class Ethnicity extends React.Component {
           innerRadius={100}
           labels={() => null}
           data={data}
-
-
           labelComponent={<VictoryTooltip constrainToVisibleArea />}
         />
       </div>

@@ -78,12 +78,15 @@ class App extends React.Component {
 
     return (
       <div className="App max-w-full">
-        <Nav id="nav" props={jsonData} />
+        <Nav
+          id="nav"
+          className="fixed w-full z-30 top-0 bg-white shadow-lg p-3 flex items-center justify-between"
+          props={jsonData}
+        />
 
-        {/* <section className="bg-yellow-500 px-10 py-10 lg:p-32 flex  container mx-auto"> */}
         <section
           id="profile"
-          className=" w-full bg-yellow-500 p-10 flex flex-col m-auto text-center lg:p-32 space-y-4"
+          className=" constainer mx-auto w-full bg-yellow-500 p-10 flex flex-col m-auto text-center lg:p-32 space-y-4"
         >
           <div>
             <Profile props={this.state} />
@@ -140,13 +143,13 @@ class App extends React.Component {
         </section>
 
         <section id="tuition" className="flex items-center flex">
-          <div className="flex w-10/12 p-20 pr-0">
+
             <div className="w-1/3 mt-10"></div>
             <Cost props={this.state.cost} />
-          </div>
+
         </section>
       </div>
-    )
+    );
   }
 }
 

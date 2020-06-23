@@ -39,8 +39,8 @@ export  default class Cost extends React.Component {
     return (
       <div>
         <VictoryChart
+          className="container"
           width={600}
-          height={470}
           scale={{ x: "time" }}
           theme={VictoryTheme.material}
         >
